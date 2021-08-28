@@ -72,9 +72,15 @@ public class TestCalculator {
 	}
 	
 	@Test
-	@Order(10)
+	@Order(11)
 	public void Testmetacharacterasdelimiter() {
 		assertEquals(Calculator.add("//.\n1.2"),3);
+	}
+	
+	@Test
+	@Order(12)
+	public void TestAnylengthDelimiter() {
+		assertEquals(Calculator.add("//[***]\n1***2***3"),6);
 	}
 }
 	

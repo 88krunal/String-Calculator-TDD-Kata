@@ -54,7 +54,11 @@ public class Calculator {
 	}
 	
 	private static String parseDelimiter(String head) {
-		return Pattern.quote(head.substring(2));
+		String delimiter=head.substring(2);
+		if(delimiter.startsWith("[")) {
+			delimiter=  delimiter.substring(1,delimiter.length()-1);
+		}
+		return Pattern.quote(delimiter);
 	}
 	
 	public static Object GetCalledCount() {
