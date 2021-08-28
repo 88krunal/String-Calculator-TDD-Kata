@@ -20,7 +20,11 @@ public class TestCalculator {
 	public void TestMorethanTwoNumberString() {
 		assertEquals(Calculator.add("1,2,3"),6);
 	}
-
+	
+	@Test
+	public void TestNumberStringNewLineDelimiter() {
+		assertEquals(Calculator.add("1\n2,3"),6);
+	}
 	
 }
 	
