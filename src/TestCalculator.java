@@ -25,6 +25,11 @@ public class TestCalculator {
 	public void TestNumberStringNewLineDelimiter() {
 		assertEquals(Calculator.add("1\n2,3"),6);
 	}
+	@Test
+	public void TestDifferentDelimiter() {
+		assertEquals(Calculator.add("//;\n1;2"),3);
+	}
+
 	
 }
 	
