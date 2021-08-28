@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Calculator {
 
@@ -11,10 +12,19 @@ public class Calculator {
 	}
 	
 	private int addUtil() {
-		return Arrays.stream(numbers.split(delimiter))
-				.mapToInt(Integer::parseInt).sum();
+		NoNegativeNumbers();
+		return getNumbers().sum();
 	}
 	
+	private void NoNegativeNumbers() {
+		if(getNumbers().anyMatch(n -> n<0)) {
+			throw new IllegalArgumentException("negatives not allowed: -1");
+		}
+	}
+	private IntStream getNumbers() {
+		return Arrays.stream(numbers.split(delimiter))
+				.mapToInt(Integer::parseInt);
+	}
 	public static int add(String input) {
 		if(input.isEmpty())
 			return 0;
