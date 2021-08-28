@@ -1,36 +1,46 @@
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
+@TestMethodOrder(OrderAnnotation.class)
 public class TestCalculator {
 	@Test
+	@Order(1)
 	public void TestEmptyString() {
 		assertEquals(Calculator.add(""),0);
 	}
 	@Test
+	@Order(2)
 	public void TestOneNumberString() {
 		assertEquals(Calculator.add("1"),1);
 	}
 	@Test
+	@Order(3)
 	public void TestTwoNumberString() {
 		assertEquals(Calculator.add("1,2"),3);
 		assertEquals(Calculator.add("2,3"),5);
 	}
 	@Test
+	@Order(4)
 	public void TestMorethanTwoNumberString() {
 		assertEquals(Calculator.add("1,2,3"),6);
 	}
 	
 	@Test
+	@Order(5)
 	public void TestNumberStringNewLineDelimiter() {
 		assertEquals(Calculator.add("1\n2,3"),6);
 	}
 	@Test
+	@Order(6)
 	public void TestDifferentDelimiter() {
 		assertEquals(Calculator.add("//;\n1;2"),3);
 	}
 
 	@Test
+	@Order(7)
 	public void TestoneNegativeNumber() {
 		try {
 			Calculator.add("-1,2");
@@ -40,6 +50,7 @@ public class TestCalculator {
 		}
 	}
 	@Test
+	@Order(8)
 	public void TestMultipleNegativeNumber() {
 		try {
 			Calculator.add("-1,2,-10,-12");
@@ -47,6 +58,11 @@ public class TestCalculator {
 		catch(IllegalArgumentException e){
 			assertEquals(e.getMessage(),"negatives not allowed: -1,-10,-12");
 		}
+	}
+	@Test
+	@Order(9)
+	public void TestCountAddmethodinvoked() {
+		assertEquals(Calculator.GetCalledCount(),7);
 	}
 }
 	

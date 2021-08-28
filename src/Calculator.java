@@ -3,6 +3,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 public class Calculator {
 
+	private static int countAddmethod=0;
 	private String delimiter;
 	private String numbers;
 	
@@ -11,6 +12,10 @@ public class Calculator {
 		this.numbers=numbers;
 	}
 	
+	public static int add(String input) {
+		countAddmethod+=1;
+		return parseinput(input).addUtil();
+	}
 	private int addUtil() {
 		NoNegativeNumbers();
 		return getNumbers().sum();
@@ -36,10 +41,6 @@ public class Calculator {
 		}
 	}
 	
-	public static int add(String input) {
-		return parseinput(input).addUtil();
-	}
-	
 	private static Calculator parseinput(String input) {
 		if(input.startsWith("//")) {
 			String inputparts[]=input.split("\n",2);
@@ -48,5 +49,9 @@ public class Calculator {
 		else {
 			return new Calculator(",|\n",input);
 		}
+	}
+
+	public static Object GetCalledCount() {
+		return countAddmethod;
 	}
 }
