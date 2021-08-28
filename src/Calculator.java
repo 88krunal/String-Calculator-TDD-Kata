@@ -47,7 +47,7 @@ public class Calculator {
 		if(input.startsWith("//")) {
 			String inputparts[]=input.split("\n",2);
 			return new Calculator(parseDelimiter(inputparts[0]),inputparts[1]);
-		}
+		} 
 		else {
 			return new Calculator(",|\n",input);
 		}
@@ -58,7 +58,9 @@ public class Calculator {
 		if(delimiter.startsWith("[")) {
 			delimiter=  delimiter.substring(1,delimiter.length()-1);
 		}
-		return Pattern.quote(delimiter);
+		return Stream.of(delimiter.split("]\\["))
+				.map(Pattern::quote)
+				.collect(Collectors.joining("|"));
 	}
 	
 	public static Object GetCalledCount() {

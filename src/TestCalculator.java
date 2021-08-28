@@ -91,7 +91,7 @@ public class TestCalculator {
 	@Test
 	@Order(13)
 	public void TestMultipleDelimiter() {
-		assertEquals(Calculator.add("“//[*][%]\\n1*2%3"),6);
+		assertEquals(Calculator.add("//[*][%]\n1*2%3"),6);
 	}
 	
 }
