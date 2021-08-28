@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.stream.IntStream;
+import java.util.stream.Collectors;
 
 public class Calculator {
 
@@ -17,8 +18,11 @@ public class Calculator {
 	}
 	
 	private void NoNegativeNumbers() {
+
 		if(getNumbers().anyMatch(n -> n<0)) {
-			throw new IllegalArgumentException("negatives not allowed: -1");
+			String NegativenumberSequence=getNumbers().filter(n -> n<0).mapToObj(Integer::toString)
+					.collect(Collectors.joining(","));
+			throw new IllegalArgumentException("negatives not allowed: "+NegativenumberSequence);
 		}
 	}
 	private IntStream getNumbers() {

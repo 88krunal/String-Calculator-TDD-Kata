@@ -45,7 +45,7 @@ public class TestCalculator {
 			Calculator.add("-1,2,-10,-12");
 		}
 		catch(IllegalArgumentException e){
-			assertEquals(e.getMessage(),"negatives not allowed: -1,-10,12");
+			assertEquals(e.getMessage(),"negatives not allowed: -1,-10,-12");
 		}
 	}
 }
