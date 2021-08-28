@@ -94,5 +94,11 @@ public class TestCalculator {
 		assertEquals(Calculator.add("//[*][%]\n1*2%3"),6);
 	}
 	
+	@Test
+	@Order(14)
+	public void TestMultipleDelimiterwithlengthmorethanonechar() {
+		assertEquals(Calculator.add("//[**][%%]\n1**2%%3"),6);
+	}
+	
 }
 	
