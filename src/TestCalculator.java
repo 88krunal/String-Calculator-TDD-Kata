@@ -16,5 +16,11 @@ public class TestCalculator {
 		assertEquals(Calculator.add("1,2"),3);
 		assertEquals(Calculator.add("2,3"),5);
 	}
+	@Test
+	public void TestMorethanTwoNumberString() {
+		assertEquals(Calculator.add("1,2,3"),6);
+	}
+
+	
 }
 	
