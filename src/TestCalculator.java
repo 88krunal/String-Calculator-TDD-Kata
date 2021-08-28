@@ -70,5 +70,11 @@ public class TestCalculator {
 	public void Testignorenumberbiggerthanthousand() {
 		assertEquals(Calculator.add("1001,2"),2);
 	}
+	
+	@Test
+	@Order(10)
+	public void Testmetacharacterasdelimiter() {
+		assertEquals(Calculator.add("//.\n1.2"),3);
+	}
 }
 	

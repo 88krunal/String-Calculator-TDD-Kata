@@ -1,4 +1,5 @@
 import java.util.stream.IntStream;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 public class Calculator {
@@ -45,13 +46,17 @@ public class Calculator {
 	private static Calculator parseinput(String input) {
 		if(input.startsWith("//")) {
 			String inputparts[]=input.split("\n",2);
-			return new Calculator(inputparts[0].substring(2),inputparts[1]);
+			return new Calculator(parseDelimiter(inputparts[0]),inputparts[1]);
 		}
 		else {
 			return new Calculator(",|\n",input);
 		}
 	}
-
+	
+	private static String parseDelimiter(String head) {
+		return Pattern.quote(head.substring(2));
+	}
+	
 	public static Object GetCalledCount() {
 		return countAddmethod;
 	}
