@@ -11,11 +11,13 @@ public class TestCalculator {
 	public void TestEmptyString() {
 		assertEquals(Calculator.add(""),0);
 	}
+	
 	@Test
 	@Order(2)
 	public void TestOneNumberString() {
 		assertEquals(Calculator.add("1"),1);
 	}
+	
 	@Test
 	@Order(3)
 	public void TestTwoNumberString() {
@@ -33,6 +35,7 @@ public class TestCalculator {
 	public void TestNumberStringNewLineDelimiter() {
 		assertEquals(Calculator.add("1\n2,3"),6);
 	}
+	
 	@Test
 	@Order(6)
 	public void TestDifferentDelimiter() {
@@ -49,6 +52,7 @@ public class TestCalculator {
 			assertEquals(e.getMessage(),"negatives not allowed: -1");
 		}
 	}
+	
 	@Test
 	@Order(8)
 	public void TestMultipleNegativeNumber() {
@@ -59,6 +63,7 @@ public class TestCalculator {
 			assertEquals(e.getMessage(),"negatives not allowed: -1,-10,-12");
 		}
 	}
+	
 	@Test
 	@Order(9)
 	public void TestCountAddmethodinvoked() {
@@ -82,5 +87,12 @@ public class TestCalculator {
 	public void TestAnylengthDelimiter() {
 		assertEquals(Calculator.add("//[***]\n1***2***3"),6);
 	}
+	
+	@Test
+	@Order(13)
+	public void TestMultipleDelimiter() {
+		assertEquals(Calculator.add("“//[*][%]\\n1*2%3"),6);
+	}
+	
 }
 	
