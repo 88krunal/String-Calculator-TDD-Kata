@@ -5,7 +5,8 @@ public class Calculator {
 		if(input.isEmpty())
 			return 0;
 		else if(input.contains(",")){
-			return 3;
+			String NumberList[]=input.split(",");
+			return Integer.parseInt(NumberList[0])+Integer.parseInt(NumberList[1]);
 		}	
 		else {
 			return Integer.parseInt(input);
