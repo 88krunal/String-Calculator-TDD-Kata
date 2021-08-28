@@ -8,3 +8,4 @@ public class TestCalculator {
 		assertEquals(Calculator.add(""),0);
 	}
 }
+	
