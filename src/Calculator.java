@@ -1,16 +1,13 @@
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Calculator {
 
 	public static int add(String input) {
 		if(input.isEmpty())
 			return 0;
-		else if(input.contains(",")){
-			String NumberList[]=input.split(",");
-			return Integer.parseInt(NumberList[0])+Integer.parseInt(NumberList[1]);
-		}	
-		else {
-			return Integer.parseInt(input);
-		}
+		Stream<String> Numbers= Arrays.stream(input.split(","));
+		return Numbers.mapToInt(Integer::parseInt).sum();
+	
 	}
-
 }
