@@ -62,7 +62,13 @@ public class TestCalculator {
 	@Test
 	@Order(9)
 	public void TestCountAddmethodinvoked() {
-		assertEquals(Calculator.GetCalledCount(),7);
+		assertEquals(Calculator.GetCalledCount(),8);
+	}
+	
+	@Test
+	@Order(10)
+	public void Testignorenumberbiggerthanthousand() {
+		assertEquals(Calculator.add("1001,2"),2);
 	}
 }
 	

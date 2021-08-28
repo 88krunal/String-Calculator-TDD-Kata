@@ -37,7 +37,8 @@ public class Calculator {
 		}
 		else {
 			return Stream.of(numbers.split(delimiter))
-				.mapToInt(Integer::parseInt);
+				.mapToInt(Integer::parseInt)
+				.filter(n-> n<1000);
 		}
 	}
 	
